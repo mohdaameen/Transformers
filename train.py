@@ -12,6 +12,8 @@ from torch.utils.tensorboard import SummaryWriter
 from config import get_weights_file_path
 from model import build_transformer
 
+from tqdm import tqdm
+
 
 def get_all_sentences(ds, lang):
     for item in ds:
@@ -94,6 +96,21 @@ def train_model(config):
         global_step = state['global_step']
 
     loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer_src.token_to_id('[PAD]'), label_smoothing=0.1).to(device)
+
+
+    for epoch in range(initial_epoch, config['num_epochs']):
+        model.train()
+        batch_iterator = tqdm(train_dataloader, desc=f'Processing epoch {epoch:02d}')
+        
+        for batch in batch_iterator:
+            encoder_input = batch['encoder_input'].to(device) # (B, Seq_Len)
+            decoder_input = batch['decoder_input'].to(device)
+            encoder_mask = batch['encoder_mask'].to(device)
+            decoder_mask = batch['decoder_mask'].to(device)
+            
+
+
+
 
 
 
