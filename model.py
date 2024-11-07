@@ -143,7 +143,7 @@ class EncoderBlock(nn.Module):
 class Encoder(nn.Module):
 
     def __init__(self, layers: nn.ModuleList) -> None:
-        super().__init()
+        super().__init__()
         self.layers = layers
         self.norm = LayerNormalization()
 
@@ -175,7 +175,7 @@ class DecoderBlock(nn.Module):
 class Decoder(nn.Module):
 
     def __init__(self, layers: nn.ModuleList) -> None:
-        super().__init()
+        super().__init__()
         self.layers = layers
         self.norm = LayerNormalization()
 
