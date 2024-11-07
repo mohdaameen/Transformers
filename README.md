@@ -29,14 +29,12 @@ cd Transformers
 
 It is recommended to create a virtual environment for this project. Run the following commands:
 
-<pre><code>
-# For Windows
+<pre><code># For Windows
 python -m venv venv
 .\venv\Scripts\activate
 </code></pre>
 
-<pre><code>
-# For MacOS/Linux
+<pre><code># For MacOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 </code></pre>
